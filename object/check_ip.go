@@ -23,6 +23,11 @@ import (
 )
 
 func CheckEntryIp(clientIp string, user *User, application *Application, organization *Organization, lang string) error {
+	host, _, err := net.SplitHostPort(clientIp)
+	if err == nil {
+		clientIp = host
+	}
+
 	entryIp := net.ParseIP(clientIp)
 	if entryIp == nil {
 		return fmt.Errorf(i18n.Translate(lang, "check:Failed to parse client IP: %s"), clientIp)
