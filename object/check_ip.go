@@ -35,7 +35,6 @@ func CheckEntryIp(clientIp string, user *User, application *Application, organiz
 		return nil
 	}
 
-	var err error
 	if user != nil {
 		err = isEntryIpAllowd(user.IpWhitelist, entryIp, lang)
 		if err != nil {
