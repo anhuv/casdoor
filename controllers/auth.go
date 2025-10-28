@@ -778,7 +778,7 @@ func (c *ApiController) Login() {
 					return
 				}
 				if !reg.MatchString(userInfo.Email) {
-					c.ResponseError(fmt.Sprintf(c.T("check:Email is invalid")))
+					c.ResponseError(fmt.Sprintf("%s", c.T("check:Email is invalid")))
 				}
 			}
 		}
