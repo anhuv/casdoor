@@ -75,7 +75,7 @@ func GenerateSamlRequest(id, relayState, host, lang string) (auth string, method
 		return "", "", err
 	}
 	if provider.Category != "SAML" {
-		return "", "", fmt.Errorf(i18n.Translate(lang, "saml_sp:provider %s's category is not SAML"), provider.Name)
+		return "", "", fmt.Errorf("%s", i18n.Translate(lang, "saml_sp:provider %s's category is not SAML"), provider.Name)
 	}
 
 	sp, err := buildSp(provider, "", host)
