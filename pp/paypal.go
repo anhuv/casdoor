@@ -17,7 +17,6 @@ package pp
 import (
 	"context"
 	"errors"
-	"fmt"
 	"strconv"
 
 	"github.com/casdoor/casdoor/conf"

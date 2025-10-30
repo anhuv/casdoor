@@ -98,7 +98,7 @@ func (idp *DingTalkIdProvider) GetToken(code string) (*oauth2.Token, error) {
 	}
 
 	if pToken.ErrCode != 0 {
-		return nil, errors.New(("pToken.Errcode = %d, pToken.Errmsg = %s", pToken.ErrCode, pToken.ErrMsg)
+		return nil, errors.New("pToken.Errcode = %d, pToken.Errmsg = %s", pToken.ErrCode, pToken.ErrMsg)
 	}
 
 	token := &oauth2.Token{
@@ -262,9 +262,9 @@ func (idp *DingTalkIdProvider) getUserId(unionId string, accessToken string) (st
 		return "", err
 	}
 	if data.ErrCode == 60121 {
-		return "", errors.New(("该应用只允许本企业内部用户登录，您不属于该企业，无法登录")
+		return "", errors.New("该应用只允许本企业内部用户登录，您不属于该企业，无法登录")
 	} else if data.ErrCode != 0 {
-		return "", errors.New((data.ErrMessage)
+		return "", errors.New(data.ErrMessage)
 	}
 	return data.Result.UserId, nil
 }
@@ -291,7 +291,7 @@ func (idp *DingTalkIdProvider) getUserCorpEmail(userId string, accessToken strin
 		return "", "", "", err
 	}
 	if data.ErrMessage != "ok" {
-		return "", "", "", errors.New((data.ErrMessage)
+		return "", "", "", errors.New(data.ErrMessage)
 	}
 	return data.Result.Mobile, data.Result.Email, data.Result.JobNumber, nil
 }
